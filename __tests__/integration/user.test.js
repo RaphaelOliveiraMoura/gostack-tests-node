@@ -13,4 +13,10 @@ describe('User', () => {
 
     expect(response.body).toHaveProperty('id');
   });
+
+  it('should be able to return all users', async () => {
+    const response = await request(app).get('/users');
+
+    expect(Array.isArray(response.body)).toBe(true);
+  });
 });
